@@ -27,9 +27,10 @@ export default function TweetEditorForm() {
 
         newTweet = {
             tweetAvatar: userProfil,
-            tweetTitle: currentUser.name,
+            tweetTitle: psuedo,
             tweetP: "@CNN . 7m",
             tweetText: data.inputContent,
+            tweetImage: null,
             comments: 0,
             retweet: 0,
             likes: 0
@@ -37,8 +38,8 @@ export default function TweetEditorForm() {
 
         try {
             
-            const response = await axios.post('https://65b7cc9846324d531d558a48.mockapi.io/tweets', newTweet);
-            console.log(response);
+            const response = await axios.post('http://localhost:3001/', newTweet);
+            console.log("ICI : ", response);
             {
                 /*
                 alert(`Vous venez d'enregistrer les informations suivantes : 

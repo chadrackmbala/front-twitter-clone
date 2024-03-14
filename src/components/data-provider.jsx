@@ -13,9 +13,8 @@ export default function DataProvider({ children }) {
 
     async function getTweets() {
         try {
-            const response = await axios.get('https://65b7cc9846324d531d558a48.mockapi.io/tweets');
-            //onsole.log(response.data);
-            setTweetData(response.data);
+            const response = await axios.get('http://localhost:3001/');
+            setTweetData(response.data.tweets);
             return response;
         } catch (error) {
             return error;

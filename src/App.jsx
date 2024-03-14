@@ -62,16 +62,10 @@ import useUserStore from './context/UserContext';
 export default function App() {
 
   const { pseudo, userProfil, isLogged, upDatePseudo, upDateIsLogged } = useUserStore();
-  console.log(pseudo);
 
   const usersData = InitialData.currentUser;
 
-  console.log("IMAGE :", usersData.userImageProfil);
-  console.log("TYPE :", typeof usersData.userImageProfil);
-
   let currentUser = usersData;
-
-  console.log(currentUser.userImageProfil);
 
   const [userData, setUserdata] = useState(currentUser);
 
@@ -81,7 +75,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           {
-            isLogged ? <Route path="/" element={<Layout />}>
+            !isLogged ? <Route path="/" element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/explore" element={<Explore />} />
               <Route path="/notifications" element={<Notifications />} />
